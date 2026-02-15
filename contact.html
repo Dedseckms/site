@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Контакты — LuxEstate</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="cursor-glow"></div>
+
+  <header class="header scrolled">
+    <nav class="nav">
+      <a href="index.html" class="logo">LuxEstate</a>
+      <ul class="nav-links">
+        <li><a href="complexes.html">Комплексы</a></li>
+        <li><a href="about.html">О нас</a></li>
+        <li><a href="contact.html" class="active">Контакты</a></li>
+      </ul>
+      <a href="contact.html" class="btn btn-primary">Записаться на просмотр</a>
+      <button class="burger" aria-label="Меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main class="page-main">
+    <section class="page-hero">
+      <div class="container">
+        <span class="section-label" data-animate>Свяжитесь с нами</span>
+        <h1 class="page-title" data-animate>Запишитесь на просмотр</h1>
+        <p class="page-subtitle" data-animate>Оставьте заявку, и наш менеджер свяжется с вами в течение 15 минут</p>
+      </div>
+    </section>
+
+    <section class="section contact">
+      <div class="container">
+        <div class="contact-wrapper">
+          <div class="contact-info" data-animate>
+            <h2 class="section-title">Контактные данные</h2>
+            <div class="contact-details">
+              <a href="tel:+78001234567">+7 (800) 123-45-67</a>
+              <a href="mailto:info@luxestate.ru">info@luxestate.ru</a>
+            </div>
+            <p class="contact-address">г. Москва, ул. Примерная, д. 1, офис 100</p>
+            <p class="contact-hours">Пн–Пт: 9:00 – 20:00<br>Сб–Вс: 10:00 – 18:00</p>
+          </div>
+          <form class="contact-form" data-animate>
+            <div class="form-group">
+              <input type="text" placeholder="Ваше имя" required>
+            </div>
+            <div class="form-group">
+              <input type="tel" placeholder="Телефон" required>
+            </div>
+            <div class="form-group">
+              <input type="email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+              <select>
+                <option value="">Интересующий комплекс</option>
+                <option>Парк Город</option>
+                <option>Речные Зори</option>
+                <option>Солнечный Квартал</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <textarea placeholder="Сообщение" rows="4"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg btn-full">Отправить заявку</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <a href="index.html" class="logo">LuxEstate</a>
+        <p>© 2025 LuxEstate. Все права защищены.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

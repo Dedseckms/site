@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Комплекс — LuxEstate</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="cursor-glow"></div>
+  <header class="header scrolled">
+    <nav class="nav">
+      <a href="index.html" class="logo">LuxEstate</a>
+      <ul class="nav-links">
+        <li><a href="complexes.html">Комплексы</a></li>
+        <li><a href="about.html">О нас</a></li>
+        <li><a href="contact.html">Контакты</a></li>
+      </ul>
+      <a href="contact.html" class="btn btn-primary">Записаться на просмотр</a>
+      <button class="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+    </nav>
+  </header>
+  <main class="page-main" id="complex-content">
+    <div class="section" style="text-align: center; padding: 4rem;">
+      <p>Загрузка...</p>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <a href="index.html" class="logo">LuxEstate</a>
+        <p>© 2025 LuxEstate</p>
+      </div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+  <script>
+    (async () => {
+      const slug = new URLSearchParams(location.search).get('slug');
+      if (!slug) {
+        document.getElementById('complex-content').innerHTML = '<div class="section"><p>Комплекс не найден.</p><a href="complexes.html" class="btn btn-primary">К списку</a></div>';
+        return;
+      }
+      try {
+        const res = await fetch('/api/complexes/' + encodeURIComponent(slug));
+        if (!res.ok) throw new Error();
+        const c = await res.json();
+        const imgs = c.images || [];
+        const mainImg = imgs[0] || 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=80';
+        document.title = c.name + ' — LuxEstate';
+        document.getElementById('complex-content').innerHTML = `
+          <section class="complex-detail-hero">
+            <div class="complex-detail-gallery">
+              <img src="${mainImg}" alt="${c.name}">
+              <span class="complex-status complex-status-hero">${c.status}</span>
+            </div>
+            <div class="container">
+              <a href="complexes.html" class="back-link">← Все комплексы</a>
+              <h1 class="complex-detail-title">${c.name}</h1>
+              <p class="complex-detail-location">${c.location}</p>
+              <div class="complex-detail-meta">
+                <span>от ${c.price_from}</span>
+                <span>${c.rooms}</span>
+              </div>
+            </div>
+          </section>
+          <section class="section">
+            <div class="container">
+              <div class="complex-detail-grid">
+                <div class="complex-detail-content">
+                  <h2>О комплексе</h2>
+                  <p>${(c.description || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/\n/g, '</p><p>')}</p>
+                </div>
+                <div class="complex-detail-gallery-small">
+                  ${imgs.slice(0, 3).map(url => `<img src="${url}" alt="">`).join('') || ''}
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="section cta-section">
+            <div class="container">
+              <div class="cta-box">
+                <h2>Заинтересовал комплекс?</h2>
+                <p>Запишитесь на персональную экскурсию</p>
+                <a href="contact.html" class="btn btn-primary btn-lg">Записаться на просмотр</a>
+              </div>
+            </div>
+          </section>
+        `;
+      } catch {
+        document.getElementById('complex-content').innerHTML = '<div class="section"><p>Комплекс не найден.</p><a href="complexes.html" class="btn btn-primary">К списку</a></div>';
+      }
+    })();
+  </script>
+</body>
+</html>

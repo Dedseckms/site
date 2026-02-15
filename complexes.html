@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Жилые комплексы — LuxEstate</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="cursor-glow"></div>
+
+  <header class="header scrolled">
+    <nav class="nav">
+      <a href="index.html" class="logo">LuxEstate</a>
+      <ul class="nav-links">
+        <li><a href="complexes.html" class="active">Комплексы</a></li>
+        <li><a href="about.html">О нас</a></li>
+        <li><a href="contact.html">Контакты</a></li>
+      </ul>
+      <a href="register.html" class="btn btn-outline" style="margin-right: 0.5rem;">Регистрация</a>
+      <a href="login.html" class="btn btn-outline" style="margin-right: 0.5rem;">Вход</a>
+      <a href="contact.html" class="btn btn-primary">Записаться на просмотр</a>
+      <button class="burger" aria-label="Меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main class="page-main">
+    <section class="page-hero">
+      <div class="container">
+        <span class="section-label" data-animate>Наши проекты</span>
+        <h1 class="page-title" data-animate>Жилые комплексы</h1>
+        <p class="page-subtitle" data-animate>Выберите идеальное место для вашей семьи среди наших премиальных проектов</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div id="complexes-api" class="complexes-grid complexes-page">
+          <!-- Загружается из API -->
+          <article class="complex-card" data-animate>
+            <a href="complex-park-gorod.html" class="complex-card-link">
+              <div class="complex-image">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80" alt="Парк Город">
+                <div class="complex-overlay"><span class="complex-status">Сдача 2026</span></div>
+              </div>
+              <div class="complex-info">
+                <h3>Парк Город</h3>
+                <p class="complex-location">Центральный район</p>
+                <p class="complex-desc">Современные квартиры с панорамным остеклением.</p>
+                <div class="complex-meta"><span>от 45 млн ₽</span><span>1–4 комнаты</span></div>
+                <span class="complex-link">Подробнее →</span>
+              </div>
+            </a>
+          </article>
+          <article class="complex-card" data-animate>
+            <a href="complex-rechnye-zori.html" class="complex-card-link">
+              <div class="complex-image">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="Речные Зори">
+                <div class="complex-overlay"><span class="complex-status">Сдача 2025</span></div>
+              </div>
+              <div class="complex-info">
+                <h3>Речные Зори</h3>
+                <p class="complex-location">Набережная</p>
+                <p class="complex-desc">Вид на воду из каждой квартиры.</p>
+                <div class="complex-meta"><span>от 62 млн ₽</span><span>2–5 комнат</span></div>
+                <span class="complex-link">Подробнее →</span>
+              </div>
+            </a>
+          </article>
+          <article class="complex-card" data-animate>
+            <a href="complex-solnechnyy-kvartal.html" class="complex-card-link">
+              <div class="complex-image">
+                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80" alt="Солнечный Квартал">
+                <div class="complex-overlay"><span class="complex-status">Новинка</span></div>
+              </div>
+              <div class="complex-info">
+                <h3>Солнечный Квартал</h3>
+                <p class="complex-location">Южный район</p>
+                <p class="complex-desc">Эко-комплекс с солнечными панелями.</p>
+                <div class="complex-meta"><span>от 38 млн ₽</span><span>Студии — 4 комнаты</span></div>
+                <span class="complex-link">Подробнее →</span>
+              </div>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <a href="index.html" class="logo">LuxEstate</a>
+        <p>© 2025 LuxEstate. Все права защищены.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="api-complexes.js"></script>
+</body>
+</html>
