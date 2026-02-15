@@ -56,3 +56,5 @@ npm start
 - `db/database.js` — схема БД
 - `routes/` — API
 - `middleware/auth.js` — JWT, admin
+
+ДЛЯ РАБОТЫ РАСПКАУЙТЕ В КОРЕНЬ ПРОЕКТА node_modules.zip
